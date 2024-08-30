@@ -46,8 +46,6 @@ export default class MediaRepository{
                     thumbnailUrl
                 })
 
-                console.log(media._id);
-                
                 mediaIds.push(media._id as mongoose.Types.ObjectId);
             })
             

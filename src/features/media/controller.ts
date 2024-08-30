@@ -20,9 +20,7 @@ export default class MediaController{
 
             const mediaType = req.params.mediaType;
             const mediaId = await this.mediaRepository.uploadMedia(req.files as Express.Multer.File[], mediaType);
-            
-            console.log("response");
-            
+                        
             res.status(201).json(
                 {
                     success: true,

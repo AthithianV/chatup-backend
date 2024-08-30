@@ -1,11 +1,8 @@
 import fs from "fs";
 
-export const deleteFile = (path:string) => {
-    console.log(path);
-    
+export const deleteFile = (path:string) => {    
     try {
         fs.unlink(path, (err)=>{
-            console.log(err);
             throw err;
         });    
     } catch (error) {        
