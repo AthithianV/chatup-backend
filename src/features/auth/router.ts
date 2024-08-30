@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import { register_validator_middleware, register_validator } from "../../middlewares/validator";
 import AuthController from "./controller";
 import { auth } from "../../middlewares/authorization";
@@ -11,47 +11,33 @@ authRouter.post(
     "/register",
     register_validator,
     register_validator_middleware,
-    (req:Request, res:Response, next:NextFunction) => {
-        authController.register(req, res, next);
-    }
+    authController.register
 );
 
 authRouter.post(
-    "/login",
-    (req:Request, res:Response, next:NextFunction) => {
-        authController.login(req, res, next);
-    }
+    "/login", 
+    authController.login
 );
 
 authRouter.get(
     "/logout",
     auth,
-    (req:Request, res:Response, next:NextFunction) => {
-        authController.logout(req, res, next);
-    }
+    authController.logout
 );
 
 authRouter.get(
     "/forget-password/:emailId",
-    (req:Request, res:Response, next:NextFunction) => {
-        authController.forgetPassword(req, res, next);
-    }
+    authController.forgetPassword
 );
-
 
 authRouter.post(
     "/verify-otp",
-    (req:Request, res:Response, next:NextFunction) => {
-        authController.verifyOtp(req, res, next);
-    }
+    authController.verifyOtp
 );
-
 
 authRouter.put(
     "/reset-password",
-    (req:Request, res:Response, next:NextFunction) => {
-        authController.resetPassword(req, res, next);
-    }
+    authController.resetPassword
 );
 
 

@@ -1,6 +1,5 @@
-import express, { NextFunction, Response } from "express";
+import express from "express";
 import MessageController from "./controller";
-import { AuthorizedRequest } from "../../types/authorizedRequest";
 
 const messageRouter = express.Router();
 
@@ -8,23 +7,17 @@ const messageController = new MessageController();
 
 messageRouter.post(
     "/send-message", 
-    (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-        messageController.sendMessage(req, res, next);
-    }
+    messageController.sendMessage
 );
 
 messageRouter.put(
     "/edit-message/:messageId", 
-    (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-        messageController.editMessage(req, res, next);
-    }
+    messageController.editMessage
 );
 
 messageRouter.delete(
     "/delete-message/:messageId", 
-    (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-        messageController.deleteMessage(req, res, next);
-    }
+    messageController.deleteMessage
 );
 
 export default messageRouter;

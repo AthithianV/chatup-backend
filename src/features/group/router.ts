@@ -1,5 +1,4 @@
-import express, { NextFunction, Response } from "express";
-import { AuthorizedRequest } from "../../types/authorizedRequest";
+import express from "express";
 import GroupChatController from "./controller";
 import { uploadGroupIcon } from "../../utils/uploadImages";
 
@@ -7,50 +6,49 @@ const groupRouter = express.Router();
 
 const groupChatController = new GroupChatController();
 
-groupRouter.post("/create-group", (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    groupChatController.createGroup(req, res,next);
-});
+groupRouter.post(
+    "/create-group", 
+    groupChatController.createGroup
+);
 
-groupRouter.put("/update-group/:groupId", (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    groupChatController.updateGroup(req, res,next);
-});
+groupRouter.put(
+    "/update-group/:groupId", 
+    groupChatController.updateGroup
+);
 
-groupRouter.put("/upload-group-icon/:groupId", uploadGroupIcon, groupChatController.groupAdminCheck, (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    groupChatController.updateGroupIcon(req, res,next);
-});
+groupRouter.put(
+    "/upload-group-icon/:groupId",
+    uploadGroupIcon,
+    groupChatController.groupAdminCheck,
+    groupChatController.updateGroupIcon
+);
 
-groupRouter.delete("/delete-group/:groupId",  groupChatController.groupAdminCheck, (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-   
-    groupChatController.deleteGroup(req, res,next);
-});
+groupRouter.delete(
+    "/delete-group/:groupId",
+    groupChatController.groupAdminCheck,
+    groupChatController.deleteGroup
+);
 
-groupRouter.get("/get-group-member/:groupId", (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    groupChatController.getGroupMembers(req, res,next);
-});
+groupRouter.get(
+    "/get-group-member/:groupId",
+    groupChatController.getGroupMembers
+);
 
-groupRouter.get("/get-group-messages/:groupId", (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    groupChatController.getGroupMessages(req, res,next);
-});
+groupRouter.get(
+    "/get-group-messages/:groupId",
+    groupChatController.getGroupMessages
+);
 
-groupRouter.put("/add-user-to-group",groupChatController.groupAdminCheck, (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    groupChatController.addUserToGroup(req, res,next);
-});
+groupRouter.put(
+    "/add-user-to-group",
+    groupChatController.groupAdminCheck,
+    groupChatController.addUserToGroup
+);
 
 groupRouter.delete(
     "/remove-user-from-group/:userId/:groupId",
-    (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-        console.log(req.params);
-        groupChatController.groupAdminCheck(req, res,next);
-    },
-    (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    groupChatController.removeUserFromGroup(req, res,next);
-});
+    groupChatController.groupAdminCheck,
+    groupChatController.removeUserFromGroup
+);
 
 export default groupRouter;
-
-
-
-
-    
-      
-  
