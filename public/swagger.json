@@ -1,0 +1,1471 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ChatUp",
+    "description": "Api Documentation for Chatting application chatUp",
+    "contact": {
+      "email": "athithianpkt2001@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Sign up/ Sign in/ sign Out/ Reset Password"
+    },
+    {
+      "name": "User",
+      "description": "Operation for User"
+    },
+    {
+      "name": "Private Chat",
+      "description": "Operations for Chat"
+    },
+    {
+      "name": "Group Chat",
+      "description": "Operation for Group chat"
+    },
+    {
+      "name": "Message",
+      "description": "Operations for Message"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Creating new User Account",
+        "description": "Create New user Account with username, password and email.",
+        "operationId": "register",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/RegisterUser"
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error occured while registering"
+          },
+          "404": {
+            "description": "API not found"
+          },
+          "422": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Logs user into the system",
+        "description": "Logging in user",
+        "operationId": "login",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/LoginUser"
+        },
+        "responses": {
+          "200": {
+            "description": "Login Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message":{
+                      "type": "string"
+                    },
+                    "success":{
+                      "type": "boolean"
+                    },
+                    "token":{
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username/password"
+          }
+        }
+      }
+    },
+
+    "/auth/logout": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Logs out user from the system",
+        "description": "Log out user",
+        "operationId": "logout",
+        "responses": {
+          "200": {
+            "description": "Log out Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiResponse"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User is not logged in"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/auth/forget-password/{emailId}": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Request for sending OTP for password reset",
+        "description": "Otp is sent to given email for verification",
+        "operationId": "forgetPassword",
+        "parameters": [
+          {
+            "name": "emailId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OTP sent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid emailID"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      }
+    },
+    "/auth/verfiy-otp": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Verify OTP for password reset",
+        "description": "Otp is verified",
+        "operationId": "verifyOtp",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Otp"
+        },
+        "responses": {
+          "200": {
+            "description": "OTP verified",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid OTP"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      }
+    },
+    "/auth/reset-password": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Resets password",
+        "description": "Password is resetted for user",
+        "operationId": "resetPassword",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ResetPassword"
+        },
+        "responses": {
+          "200": {
+            "description": "Password resetted Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid email"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      }
+    },
+        
+    "/user/upload-profile-picture": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Upload profile picture",
+        "description": "Uploads a new profile picture for the user.",
+        "operationId": "uploadProfilePicture",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Profile picture uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid file format or size"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/update-status": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Update user status",
+        "description": "Updates the status of the user.",
+        "operationId": "updateStatus",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": ["status"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Status updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/add-contact/{userId}": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Add new contact",
+        "description": "Adds a new contact to the user's contact list.",
+        "operationId": "addContact",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name of the user whose contact need to be added"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact added successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid contact"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/get-contact-list": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get contact list",
+        "description": "Retrieves the user's contact list.",
+        "operationId": "getContactList",
+        "responses": {
+          "200": {
+            "description": "Contact list retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/toggle-online": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Toggle user offline status",
+        "description": "Toggles the user's offline status.",
+        "operationId": "toggleOffline",
+        "responses": {
+          "200": {
+            "description": "User offline status toggled successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/block-user/{userId}": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Block a user",
+        "description": "Blocks a user from interacting with the current user.",
+        "operationId": "blockUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "objectId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User blocked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/leave-group/{groupId}": {
+        "delete": {
+          "tags": ["User"],
+          "summary": "Remove a user from a group",
+          "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User left the group successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+    "/user/verify-email": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Verify user email",
+        "description": "Initiates the email verification process for the user.",
+        "operationId": "verifyEmail",
+        "responses": {
+          "200": {
+            "description": "Email verification initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/confirm-email": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Confirm email verification",
+        "description": "Confirms the user's email verification process.",
+        "operationId": "confirmEmail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "otp": {
+                    "type": "string"
+                  }
+                },
+                "required": ["otp"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email confirmed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid verification token"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/{userId}": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get user profile",
+        "description": "Retrieves the profile information of a user by username.",
+        "operationId": "getUserProfile",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "objectId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfileResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+
+    "/chat/create-chat/{userId}": {
+      "put": {
+        "summary": "Create a new private chat",
+        "description": "Creates a new private chat between two users.",
+        "tags": ["Private Chat"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "objectId"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Chat created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/chat/get-chat-history/{chatId}": {
+      "get": {
+        "summary": "Get chat history",
+        "description": "Retrieves the message history for a specific chat.",
+        "tags": ["Private Chat"],
+        "parameters": [
+          {
+            "name": "chatId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "objectId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chat history retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "chatId": {
+                      "type": "string",
+                      "format": "objectId"
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Message"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Chat does not exist"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/chat/get-all-chat/{userId}": {
+      "get": {
+        "summary": "Get all chats for a user",
+        "description": "Retrieves all chats for a specific user.",
+        "tags": ["Private Chat"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chats retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PrivateChat"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+
+    "/group/create-group": {
+        "post": {
+          "tags": ["Group Chat"],
+          "summary": "Create a new group",
+          "requestBody":{
+            "description": "Data for Creating Group",
+            "content": {
+              "application/json":{
+                "schema": { 
+                  "type": "object",
+                  "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "participants": {
+                        "type":"array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Group created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Group created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+    },
+    "/group/update-group/{groupId}": {
+      "put": {
+        "tags": ["Group Chat"],
+        "summary": "Update group details",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody":{
+          "description": "Data for Creating Group",
+          "content": {
+            "application/json":{
+              "schema": { 
+                "type": "object",
+                "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Group updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/upload-group-icon/{groupId}": {
+      "put": {
+        "tags": ["Group Chat"],
+        "summary": "Upload Group Icon",
+        "description": "Uploads a new group Icon for the group.",
+        "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+        "operationId": "uploadGroupIcon",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Group Icon uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid file format or size"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/group/delete-group/{groupId}": {
+      "delete": {
+        "tags": ["Group Chat"],
+        "summary": "Delete a group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Group deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/get-group-member/{groupId}": {
+      "get": {
+        "tags": ["Group Chat"],
+        "summary": "Get group members",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved group members"
+            
+          }
+        }
+      }
+    },
+    "/group/get-group-messages/{groupId}": {
+      "get": {
+        "tags": ["Group Chat"],
+        "summary": "Get group messages",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved group messages"
+            
+          }
+        }
+      }
+    },
+    "/group/add-user-to-group": {
+      "put": {
+        "tags": ["Group Chat"],
+        "summary": "Add a user to a group",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User added to group successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/remove-user-from-group/{userId}/{groupId}": {
+      "delete": {
+        "tags": ["Group Chat"],
+        "summary": "Remove a user from a group",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User removed from group successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/message/send-message": {
+      "post": {
+        "summary": "Send a message",
+        "tags": ["Message"],
+        "parameters": [
+          {
+            "name": "chatId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "chatType",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "The content of the message",
+                      "example": "Hello, World!"
+                    },
+                    "media": {
+                      "type": "string",
+                      "format": "objectId",
+                      "description": "Optional reference to media",
+                      "example": "60d5f483f1c2b68b5f1e1d69"
+                    },
+                    "messageType": {
+                      "type": "string",
+                      "enum": ["text", "image", "video", "file"],
+                      "description": "Type of the message",
+                      "example": "text"
+                    }
+                  },
+                  "required": ["content", "messageType"]
+                }
+              }
+            }
+          },
+        "responses": {
+          "200": {
+            "description": "Message sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/message/edit-message/{messageId}": {
+      "put": {
+        "summary": "Edit a message",
+        "tags": ["Message"],
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "The content of the message",
+                      "example": "Hello, World!"
+                    },
+                    "media": {
+                      "type": "string",
+                      "format": "objectId",
+                      "description": "Optional reference to media",
+                      "example": "60d5f483f1c2b68b5f1e1d69"
+                    },
+                    "messageType": {
+                      "type": "string",
+                      "enum": ["text", "image", "video", "file"],
+                      "description": "Type of the message",
+                      "example": "text"
+                    }
+                  },
+                  "required": ["content", "messageType"]
+                }
+              }
+            }
+          },
+        "responses": {
+          "200": {
+            "description": "Message edited successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Message not found"
+          }
+        }
+      }
+    },
+    "/message/delete-message/{messageId}": {
+      "delete": {
+        "summary": "Delete a message",
+        "tags": ["Message"],
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Message not found"
+          }
+        }
+      }
+    }
+  },
+  
+  
+    
+  "components": {
+    "schemas": {
+      "UserCredential1":{
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "chatUp"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "chatup@example.com"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "example": "yourpassword"
+          }
+        },
+        "required": [
+          "username",
+          "email",
+          "password"
+        ]
+      },
+      "UserCredential2": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "chatup@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "ChatUpIsCool"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "ResetPassword": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "chatup@gmail.com"
+          },
+          "newPassword": {
+            "type": "string",
+            "example": "ChatUpIsCool"
+          }
+        }
+      },
+      "Otp":{
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "chatUp@gmail.com"
+          },
+          "otp": {
+            "type": "number",
+            "example": "9999"
+          }
+        }
+      },
+      "ContactListResponse": {
+        "type": "object",
+        "properties": {
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserProfileResponse"
+            }
+          }
+        }
+      },
+      "UserProfileResponse": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "profilePicture": {
+            "type": "object",
+            "properties": {
+              "original":{
+                "type": "string"
+              },
+              "compressed":{
+                "type": "string"
+              }
+            }
+          },
+          "online":{
+            "type": "boolean"
+          },
+          "lastActive":{
+            "type": "integer"
+          }
+
+        }
+      },
+      "Message": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "chat": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "sender": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "content": {
+            "type": "string"
+          },
+          "media": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "messageType": {
+            "type": "string",
+            "enum": ["text", "image", "video", "file"]
+          },
+          "isRead": {
+            "type": "boolean"
+          },
+          "replyToMessageId": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "readAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PrivateChat": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "objectId"
+            }
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "objectId"
+            }
+          },
+          "lastMessage": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "default": true
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "default": false
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "RegisterUser": {
+        "description": "User data that is needed for create account",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/UserCredential1"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/UserCredential1"
+            }
+          }
+        }
+      },
+      "LoginUser": {
+        "description": "Object for Logging in",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/UserCredential2"
+            }
+          }
+        }
+      },
+      "Otp": {
+        "description": "Object for Otp for Password Reset",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Otp"
+            }
+          }
+        }
+      },
+      "ResetPassword":{
+        "description": "Object for Resetting Password",
+        "content": {
+            "application/json":{
+              "schema": {
+                "$ref": "#/components/schemas/ResetPassword"
+              }
+            }
+          }
+      }
+    },
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
