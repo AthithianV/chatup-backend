@@ -1,22 +1,19 @@
-import express, { NextFunction, Response } from "express";
+import express from "express";
 import MediaController from "./controller";
-import { AuthorizedRequest } from "../../types/authorizedRequest";
+import { uploadMedia } from "../../utils/uploadMedia";
 
 const mediaRouter = express.Router();
 const mediaController = new MediaController();
 
 mediaRouter.post(
-    "/upload-file",
-    (req:AuthorizedRequest, res:Response, next:NextFunction) => {
-        mediaController.uploadFile(req, res, next);
-    }
+    "/:mediaType",
+    uploadMedia,
+    mediaController.uploadMedia
 )
 
 mediaRouter.delete(
-    "/delete-file",
-    (req:AuthorizedRequest, res:Response, next:NextFunction) => {
-        mediaController.uploadFile(req, res, next);
-    }
+    "/:mediaId",
+    mediaController.deleteMedia
 )
 
 export default mediaRouter;

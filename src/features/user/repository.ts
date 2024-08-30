@@ -38,7 +38,7 @@ export default class UserRepository {
 
     updateProfilePicture = async (filename:string, userId:string) => {
         try {
-            const basePath = "./public/uploads/profile";
+            const basePath = "./uploads/profile";
             const originalPath = `/original/${filename}`;
             const compressedPath = `/compressed/${filename}`;
 

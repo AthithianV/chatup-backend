@@ -22,6 +22,28 @@ export const register_validator_middleware = (req: Request, res: Response, next:
     }else{
         const errorMessages = error.array().map(e=>e.msg);
         errorLogger.error(errorMessages);
-        res.status(400).json({status: "failed", errors: errorMessages});
+        res.status(400).json({success: "failed", message: errorMessages});
     }
 }
+
+export const message_validator = [
+    body('content')
+        .notEmpty().withMessage("content Should not be empty"),
+    body('messageType').custom((value, { req }) => {
+        if (value !== 'text' && !req.body.media) {
+            throw new Error('Id of Media field is required if messageType is not text');
+        }
+        return true;
+    })
+];
+
+export const message_validator_middleware = (req: Request, res: Response, next:NextFunction):void=>{
+    const error = validationResult(req);    
+    if(error.isEmpty()){
+        next();
+    }else{
+        const errorMessages = error.array().map(e=>e.msg);
+        res.status(400).json({success: "failed", message: errorMessages});
+    }
+}
+

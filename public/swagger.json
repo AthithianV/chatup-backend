@@ -33,9 +33,138 @@
     {
       "name": "Message",
       "description": "Operations for Message"
+    },
+    {
+      "name": "Media",
+      "description": "Operations for Media Upload and Delete"
     }
   ],
   "paths": {
+
+    
+    "/media/{mediaType}": {
+      "post": {
+        "summary": "Upload multiple images",
+        "description": "Endpoint to upload multiple images.",
+        "tags": ["Media"],
+        "parameters": [
+          {
+            "name": "mediaType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["image", "video", "audio", "file"]
+            },
+            "description": "Id of Media to be deleted"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    },
+                    "description": "Multiple images to upload.",
+                    "required": ["images"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "mediaId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Images uploaded successfully!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid image format or other errors."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/{mediaId}": {
+      "delete": {
+        "summary": "Delete Media",
+        "description": "Endpoint to delete images.",
+        "tags": ["Media"],
+        "parameters": [
+          {
+            "name": "mediaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Id of Media to be deleted"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    
+    
+
     "/auth/register": {
       "post": {
         "tags": [
@@ -1064,12 +1193,12 @@
                     "media": {
                       "type": "string",
                       "format": "objectId",
-                      "description": "Optional reference to media",
-                      "example": "60d5f483f1c2b68b5f1e1d69"
+                      "example": "60d5f483f1c2b68b5f1e1d69",
+                      "description": "Optional reference to media"
                     },
                     "messageType": {
                       "type": "string",
-                      "enum": ["text", "image", "video", "file"],
+                      "enum": ["text", "image", "video", "file", "audio"],
                       "description": "Type of the message",
                       "example": "text"
                     }

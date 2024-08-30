@@ -3,7 +3,7 @@
 
 
 # Tasks:
-   - Write validate for message requests.
+   - Use Firebase for files and media
 
 
 ## Controllers

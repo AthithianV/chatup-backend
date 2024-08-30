@@ -13,6 +13,7 @@ import { AuthorizedRequest } from "./types/authorizedRequest";
 import privateChatRouter from "./features/chat/router";
 import groupRouter from "./features/group/router";
 import messageRouter from "./features/message/router";
+import mediaRouter from "./features/media/router";
 
 
 
@@ -43,16 +44,20 @@ app.use((req:AuthorizedRequest, res:Response, next:NextFunction)=>{
     next();
 });
 
-const profilePicPath = path.join("public", "uploads", "profile");
-const groupIconPath = path.join("public", "uploads", "groupIcon");
+const profilePicPath = path.join("uploads", "profile");
+const groupIconPath = path.join("uploads", "groupIcon");
+const mediaPath = path.join("uploads", "media");
 app.use("/profile", /*auth,*/ express.static(profilePicPath));
 app.use("/group-icon", /*auth*/ express.static(groupIconPath));
+app.use("/media", /*auth*/ express.static(mediaPath));
+
 
 app.use("/auth", authRouter);
 app.use("/user", /*auth,*/ userRouter);
 app.use("/chat", /*auth,*/ privateChatRouter);
 app.use("/group", /*auth,*/ groupRouter);
 app.use("/message", /*auth,*/ messageRouter);
+app.use("/media", /*auth,*/ mediaRouter);
 
 app.get("/", (req:Request, res:Response, next:NextFunction)=>{
     res.status(200).send("Welcome to Chatup");

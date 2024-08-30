@@ -1,0 +1,1060 @@
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:21:52'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:21:52'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:24:05'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:24:05'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:39:08'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:39:08'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:41:05'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:41:06'
+}
+{
+  message: 'Incoming Request: [POST] /message/send-message?chatId=66c86d8cbcea0e9bc2095354&chatType=private',
+  level: 'info',
+  timestamp: '2024-08-30 15:42:46'
+}
+{
+  message: 'Incoming Request: [POST] /message/send-message?chatId=66c86d8cbcea0e9bc2095354&chatType=private',
+  level: 'info',
+  timestamp: '2024-08-30 15:43:13'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:48:13'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:48:13'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:48:57'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:48:57'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:49:13'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:49:13'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 15:51:51'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 15:51:51'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 17:31:42'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 17:31:42'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 17:57:23'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 17:59:31'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 17:59:31'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 17:59:35'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:01:14'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:01:14'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:01:39'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:01:39'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:01:43'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:03:25'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:03:26'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:04:12'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:04:12'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:04:46'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:04:47'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:04:48'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:07:14'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:07:14'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:07:55'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:09:36'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:09:36'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:09:46'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:10:29'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:10:29'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:10:59'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:11:52'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:11:52'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:12:29'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:12:29'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:14:03'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:14:03'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:14:22'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:14:22'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:15:26'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:15:26'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:15:29'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:15:52'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:15:53'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:16:45'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:16:45'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:17:21'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:17:21'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:17:48'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:17:48'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:18:12'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:19:04'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:19:04'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:19:42'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:19:42'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:22:01'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:22:01'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:22:17'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:22:17'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:22:52'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:22:52'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:23:22'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:23:22'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:23:39'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:23:39'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:24:57'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:24:57'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:25:14'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:25:14'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:25:44'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:25:44'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:26:27'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:26:27'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:26:38'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:26:38'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:26:54'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:26:54'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1bf8c47e0b94f130789dc',
+  level: 'info',
+  timestamp: '2024-08-30 18:27:18'
+}
+{
+  message: 'Media:66d1bf8c47e0b94f130789dc is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 18:27:18'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:27:48'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:27:48'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:42:18'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:42:18'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:43:40'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:43:40'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:44:17'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:44:18'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:44:59'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:44:59'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:48:12'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:48:12'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:49:52'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:49:52'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:50:54'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:50:55'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:51:31'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:51:31'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 18:52:35'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:54:17'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:54:17'
+}
+{
+  message: 'Incoming Request: [GET] /media//images/original/image-1725024155199-853746900.png',
+  level: 'info',
+  timestamp: '2024-08-30 18:54:42'
+}
+{
+  message: 'Incoming Request: [GET] /favicon.ico',
+  level: 'info',
+  timestamp: '2024-08-30 18:54:44'
+}
+{
+  message: 'Incoming Request: [GET] /media/images/original/image-1725024155199-853746900.png',
+  level: 'info',
+  timestamp: '2024-08-30 18:54:49'
+}
+{
+  message: 'Incoming Request: [GET] /media/images/original/image-1725024155199-853746900.png',
+  level: 'info',
+  timestamp: '2024-08-30 18:54:52'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:55:44'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:55:44'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:56:02'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:56:02'
+}
+{
+  message: 'Incoming Request: [GET] /media/images/original/image-1725024155199-853746900.png',
+  level: 'info',
+  timestamp: '2024-08-30 18:56:10'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 18:58:07'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 18:58:07'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1c79c0c6a8399af3c07af',
+  level: 'info',
+  timestamp: '2024-08-30 18:58:14'
+}
+{
+  message: 'Media:66d1c79c0c6a8399af3c07af is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 18:58:14'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:00:08'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:00:08'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:03:20'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:03:20'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 19:04:37'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:07:05'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:07:05'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:10:35'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:10:36'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:11:05'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:11:05'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1ca6e3bc5b00ad07d4af1',
+  level: 'info',
+  timestamp: '2024-08-30 19:11:34'
+}
+{
+  message: 'Media:66d1ca6e3bc5b00ad07d4af1 is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 19:11:34'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:13:59'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:13:59'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:15:12'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:15:13'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 19:16:12'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:17:11'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:17:11'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1cd246dd153f06ecdf45d',
+  level: 'info',
+  timestamp: '2024-08-30 19:17:14'
+}
+{
+  message: 'Media:66d1cd246dd153f06ecdf45d is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 19:17:14'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:18:10'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:18:10'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:18:45'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:18:46'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:19:23'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:19:23'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1cd246dd153f06ecdf45d',
+  level: 'info',
+  timestamp: '2024-08-30 19:19:28'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 19:19:35'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:20:10'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:20:10'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1cdf0745f167950a19439',
+  level: 'info',
+  timestamp: '2024-08-30 19:20:44'
+}
+{
+  message: 'Media:66d1cdf0745f167950a19439 is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 19:20:44'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:22:38'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:22:38'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 19:22:44'
+}
+{
+  message: 'Incoming Request: [GET] /media/images/original/image-1725025964449-30046700.png',
+  level: 'info',
+  timestamp: '2024-08-30 19:25:37'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1ceacf91d1bbc74af2ce6',
+  level: 'info',
+  timestamp: '2024-08-30 19:27:16'
+}
+{
+  message: 'Media:66d1ceacf91d1bbc74af2ce6 is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 19:27:16'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:30:34'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:30:34'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 19:30:36'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1d084c6d15bf97a2a7ff2',
+  level: 'info',
+  timestamp: '2024-08-30 19:30:57'
+}
+{
+  message: 'Media:66d1d084c6d15bf97a2a7ff2 is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 19:30:57'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:32:07'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:32:07'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 19:32:15'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:33:18'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:33:18'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1d0e85dcfacfd1e49f55d',
+  level: 'info',
+  timestamp: '2024-08-30 19:33:25'
+}
+{
+  message: 'Media:66d1d0e85dcfacfd1e49f55d is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 19:33:25'
+}
+{
+  message: 'Server Started \n' +
+    ' Server Running on Port 3000 \n' +
+    ' Visit: http://localhost:3000',
+  level: 'info',
+  timestamp: '2024-08-30 19:34:30'
+}
+{
+  message: 'MongoDB is connected Successfully',
+  level: 'info',
+  timestamp: '2024-08-30 19:34:30'
+}
+{
+  message: 'Incoming Request: [POST] /media/image',
+  level: 'info',
+  timestamp: '2024-08-30 19:34:32'
+}
+{
+  message: 'Incoming Request: [DELETE] /media/66d1d170216279244721a427',
+  level: 'info',
+  timestamp: '2024-08-30 19:34:58'
+}
+{
+  message: 'Media:66d1d170216279244721a427 is deleted Successfull',
+  level: 'info',
+  timestamp: '2024-08-30 19:34:58'
+}

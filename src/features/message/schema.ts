@@ -20,13 +20,13 @@ const messageSchema = new mongoose.Schema<MessageDocument>({
         type: String,
         required: true
     },
-    media: {
+    media:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Media'
     },
     messageType: {
         type: String,
-        enum: ['text', 'image', 'video', 'file'],
+        enum: ['text', 'image', 'video', 'file', 'audio'],
         required: true
     },
     isRead: {

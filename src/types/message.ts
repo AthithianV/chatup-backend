@@ -7,7 +7,7 @@ export type Message = {
     sender: mongoose.Types.ObjectId;
     content: string;
     media?: mongoose.Types.ObjectId,
-    messageType: 'text' | 'image' | 'video' | 'file';
+    messageType: 'text' | 'image' | 'video' | 'file' | 'audio';
     isRead?: boolean;
     replyToMessageId?: mongoose.Types.ObjectId;
     createdAt?: Date;

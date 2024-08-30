@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import { MediaDocument } from "../../types/media";
 
-const mediaSchema = new mongoose.Schema({
+const mediaSchema = new mongoose.Schema<MediaDocument>({
     fileName: {
         type: String,
         required: true
@@ -30,5 +31,5 @@ const mediaSchema = new mongoose.Schema({
     }
 });
 
-const mediaModel = mongoose.model('Media', mediaSchema);
+const mediaModel = mongoose.model<MediaDocument>('Media', mediaSchema);
 export default mediaModel;

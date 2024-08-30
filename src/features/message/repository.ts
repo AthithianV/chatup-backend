@@ -20,9 +20,6 @@ export default class MessageRepository {
     
     async sendMessage(userId:string, chatId:string, chatType:string, message:Message){
         try {
-            if(message.messageType !== 'text'){
-                throw new ApplicationError(400, "Id of the media is Required");
-            }
             await UserRepository.getUserById(userId);
             let chat:PrivateChatDocument|GroupChatDocument|null;
             if(chatType === 'group'){
