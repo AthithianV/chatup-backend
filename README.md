@@ -2,8 +2,12 @@
 
 
 
+
 # Tasks:
-   - Use Firebase for files and media
+   - Transaction
+   - Use Firebase for files and media.
+   - Media Async Issue.
+   - Use Patch
 
 
 ## Controllers
@@ -50,11 +54,9 @@
    - **addUserToGroup**: Add a user to a group chat.
    - **removeUserFromGroup**: Remove a user from a group chat.
 
-
 ### 8. **PresenceController**
    - **updateStatus**: Update the user’s online/offline status.
    - **getUserStatus**: Retrieve the online status of a specific user.
-
 
 ### 9. **SearchController**
    - **searchMessages**: Search messages within a chat or across chats.

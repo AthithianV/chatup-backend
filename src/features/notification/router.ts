@@ -1,9 +1,21 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import MessageController from "./controller";
+import NotificationController from "./controller";
 
-const messageRouter = express.Router();
+const notificationRouter = express.Router();
 
-const messageController = new MessageController();
-messageRouter.use("/add", messageController.add);
+const notificationController = new NotificationController();
+// Create a notification
+notificationRouter.post('/', (req:Request, res:Response, next:NextFunction)=>notificationController.createNotification(req,res,next));
 
-export default messageRouter;
+// Get notifications for a user
+notificationRouter.get('/:userId', (req:Request, res:Response, next:NextFunction)=>notificationController.getNotifications(req,res,next));
+
+// Mark a notification as read
+notificationRouter.patch('/:notificationId/read', (req:Request, res:Response, next:NextFunction)=>notificationController.markAsRead(req,res,next));
+
+// Delete a notification
+notificationRouter.delete('/:notificationId', (req:Request, res:Response, next:NextFunction)=>notificationController.deleteNotification(req,res,next));
+
+
+export default notificationRouter;

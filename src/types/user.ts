@@ -24,7 +24,7 @@ export type User = {
     blockedUsers: mongoose.Types.ObjectId[],
     createdAt:Date,
     updatedAt:Date,
-    notifications: mongoose.Schema.Types.ObjectId[],
+    notifications: mongoose.Types.ObjectId[],
     emailVerified: boolean,
     isAdmin:boolean,
   }

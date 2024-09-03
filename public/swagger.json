@@ -37,9 +37,217 @@
     {
       "name": "Media",
       "description": "Operations for Media Upload and Delete"
+    },
+    {
+      "name": "Notification",
+      "description": "Operations for Notification creation and Deletion"
+    },
+    {
+      "name": "Presence",
+      "description": "Operations for toggling online status and get status"
     }
   ],
   "paths": {
+
+    "/presence/update-status": {
+      "patch": {
+        "summary": "Update Online status of User",
+        "operationId": "updateStatus",
+        "tags": ["Presence"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "objectId"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["online", "offline"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User online status is updated"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/presence/get-status/{userId}": {
+      "get": {
+        "summary": "Get Online status of User",
+        "operationId": "setStatus",
+        "tags": ["Presence"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "objectId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User online status is Sent",
+            "content": {
+              "application/json":{
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success":{
+                      "type": "boolean",
+                      "example": "true"
+                    },
+                    "online": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+
+    "/notification": {
+      "post": {
+        "summary": "Create a new notification",
+        "operationId": "createNotification",
+        "tags": ["Notification"],
+        "requestBody": {
+          "description": "Notification object that needs to be added",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Notification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Notification created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/notification/{userId}": {
+      "get": {
+        "summary": "Get notifications for a user",
+        "operationId": "getNotifications",
+        "tags": ["Notification"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of notifications for the user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/notification/{notificationId}/read": {
+      "patch": {
+        "summary": "Mark a notification as read",
+        "operationId": "markAsRead",
+        "tags": ["Notification"],
+        "parameters": [
+          {
+            "name": "notificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification marked as read"
+          },
+          "404": {
+            "description": "Notification not found"
+          }
+        }
+      }
+    },
+    "/notification/{notificationId}": {
+      "delete": {
+        "summary": "Delete a notification",
+        "operationId": "deleteNotification",
+        "tags": ["Notification"],
+        "parameters": [
+          {
+            "name": "notificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Notification deleted successfully"
+          },
+          "404": {
+            "description": "Notification not found"
+          }
+        }
+      }
+    },
 
     
     "/media/{mediaType}": {
@@ -1353,6 +1561,7 @@
           "password"
         ]
       },
+      
       "UserCredential2": {
         "type": "object",
         "properties": {
@@ -1516,6 +1725,35 @@
             "format": "date-time"
           }
         }
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "example": "user789"
+          },
+          "type":{
+            "type": "string",
+            "enum": ["message", "system", "alert"]
+          },
+          "content": {
+            "type": "string",
+            "example": "You have a new message!"
+          },
+          "isRead": {
+            "type": "boolean",
+            "example": false
+          },
+          "message": {
+            "type": "string",
+            "format": "objectId"
+          },
+          "actionUrl": {
+            "type": "string"
+          }
+        },
+        "required": ["userId", "message"]
       },
       "ApiResponse": {
         "type": "object",

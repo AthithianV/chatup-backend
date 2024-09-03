@@ -1,9 +1,19 @@
-import express from "express";
-import MessageController from "./controller";
+import express, { NextFunction, Request, Response } from "express";
+import PresenceController from "./controller";
+import PresenceRepository from "./repository";
 
-const messageRouter = express.Router();
+const PresenceRouter = express.Router();
 
-const messageController = new MessageController();
-messageRouter.use("/add", messageController.add);
+const presenceRepository = new PresenceRepository();
+const presenceController = new PresenceController(presenceRepository);
 
-export default messageRouter;
+PresenceRouter.patch(
+    "/update-status", 
+    (req:Request, res:Response, next:NextFunction)=>presenceController.updateStatus(req, res, next)
+);
+PresenceRouter.get(
+    "/get-status/:userId",
+    (req:Request, res:Response, next:NextFunction)=>presenceController.getUserStatus(req, res, next)
+);
+
+export default PresenceRouter;

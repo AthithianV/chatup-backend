@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 import { NotificationDocument } from "../../types/notification";
 
 const notificationSchema = new mongoose.Schema<NotificationDocument>({
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
     type: {
         type: String,
-        enum: ['message', 'friendRequest', 'mention', 'system'],
+        enum: ['message', 'system', 'alert'],
         required: true
     },
     content: {
@@ -20,13 +20,22 @@ const notificationSchema = new mongoose.Schema<NotificationDocument>({
         type: Boolean,
         default: false
     },
+    message: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Message',
+    },
+    actionUrl:{
+        type: String,
+    },
     createdAt: {
         type: Date,
         default: Date.now
     },
     updatedAt: {
-        type: Date
+        type: Date,
+        default: Date.now
     }
 });
 
-module.exports = mongoose.model('Notification', notificationSchema);
+const notificationModel = mongoose.model<NotificationDocument>('Notification', notificationSchema);
+export default notificationModel;

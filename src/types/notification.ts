@@ -1,12 +1,14 @@
 import mongoose from 'mongoose';
 
 export type Notification = {
-    _id: mongoose.Types.ObjectId;
-    user: mongoose.Types.ObjectId;
-    type: 'message' | 'system';
+    _id?: mongoose.Types.ObjectId;
+    userId: mongoose.Types.ObjectId;
+    type: 'message' | 'system' | 'alert';
     content: string;
-    isRead: boolean;
-    createdAt: Date;
+    isRead?: boolean;
+    message?: mongoose.Types.ObjectId;
+    actionUrl?: string;
+    createdAt?: Date;
     updatedAt?: Date;
 };
 

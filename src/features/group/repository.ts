@@ -71,7 +71,7 @@ export default class GroupChatRepository{
 
     updateGroup = async (groupId:string, update:UpdateGroupRequest):Promise<void> =>{
         try {
-            const group = await groupChatModel.findOneAndUpdate({_id:groupId}, update);
+            const group = await groupChatModel.findOneAndUpdate({_id:groupId}, {...update, updatedAt: new Date()});
 
             if(!group){
                 throw missingError("Group", groupId);
@@ -108,7 +108,7 @@ export default class GroupChatRepository{
                 original: originalPath,
                 compressed: compressedPath
             };
-            await groupChatModel.findOneAndUpdate({_id:groupId}, {icon});
+            await groupChatModel.findOneAndUpdate({_id:groupId}, {icon, updatedAt: new Date()});
         } catch (error) {
             throw error;
         }
@@ -186,7 +186,8 @@ export default class GroupChatRepository{
     addUserToGroup = async (groupId:string, userId:string) =>{
         try {
             const group = await groupChatModel.findByIdAndUpdate(groupId, {
-                "$push": {"participants": userId}
+                "$push": {"participants": userId},
+                updatedAt: new Date()
             });
             if(!group){
                 throw missingError("Group", groupId);
@@ -206,7 +207,8 @@ export default class GroupChatRepository{
                 throw new ApplicationError(400, "Group must have at least 3 members")
             }
             await groupChatModel.updateOne({_id: groupId}, {
-                "$pull": {"participants": userId}
+                "$pull": {"participants": userId},
+                updatedAt: new Date()
             });
 
         } catch (error) {

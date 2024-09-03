@@ -1,18 +1,33 @@
-import { Message } from "../../types/message";
+import ApplicationError, { missingError } from "../../middlewares/errorHandler";
+import UserRepository from "../user/repository";
+import userModel from "../user/schema";
 
-export default class MessageRepository {
+export default class PresenceRepository {
     
-    async add(message:Message){
+    async updateStatus(userId:string, status:string):Promise<void>{
         try {
-            console.log(message);
+            let online:boolean;
+            if(status==="online"){
+                online = true;
+            }else if(status === "offline"){
+                online = false;
+            }else{
+                throw new ApplicationError(400, "Status can either online or offline");
+            }
+            const user = await userModel.findByIdAndUpdate(userId, {online, updatedAt:new Date()});
+            if(!user){
+                throw missingError("User", userId);
+            }
+
         } catch (error) {
             throw error;
         }
     }
 
-    async delete(message:Message){
+    async getUserStatus(userId:string):Promise<boolean>{
         try {
-            console.log(message);
+            const user = await UserRepository.getUserById(userId);
+            return user.online;
         } catch (error) {
             throw error;
         }

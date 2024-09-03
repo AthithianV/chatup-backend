@@ -14,6 +14,8 @@ import privateChatRouter from "./features/chat/router";
 import groupRouter from "./features/group/router";
 import messageRouter from "./features/message/router";
 import mediaRouter from "./features/media/router";
+import notificationRouter from "./features/notification/router";
+import PresenceRouter from "./features/presence/router";
 
 
 
@@ -57,7 +59,10 @@ app.use("/user", /*auth,*/ userRouter);
 app.use("/chat", /*auth,*/ privateChatRouter);
 app.use("/group", /*auth,*/ groupRouter);
 app.use("/message", /*auth,*/ messageRouter);
-app.use("/media", /*auth,*/ mediaRouter);
+app.use("/media", mediaRouter);
+app.use("/notification", notificationRouter);
+app.use("/presence", PresenceRouter);
+
 
 app.get("/", (req:Request, res:Response, next:NextFunction)=>{
     res.status(200).send("Welcome to Chatup");

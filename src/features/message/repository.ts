@@ -50,7 +50,7 @@ export default class MessageRepository {
             if(!messageDoc.sender.equals(new mongoose.Types.ObjectId(userId))){
                 throw new ApplicationError(400, `Only the sender can edit the message`);
             }
-            await messageModel.findByIdAndUpdate(messageId, message);
+            await messageModel.findByIdAndUpdate(messageId, {...message, updateAt: new Date()});
         } catch (error) {
             throw error;
         }
