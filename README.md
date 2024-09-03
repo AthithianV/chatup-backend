@@ -76,3 +76,23 @@
   ├── presenceController.js
   └── searchController.js
 ```
+
+### uploads folder Structure
+```
+./uploads
+   ├──groupIcon
+   ├──────compressed
+   ├──────original
+   ├──media
+   ├──────audio
+   ├──────file
+   ├──────images
+   ├──────────compressed
+   ├──────────original
+   ├──────video
+   ├──────────original
+   ├──────────thumbnail
+   ├──profile
+   ├──────compressed
+   ├──────original
+```

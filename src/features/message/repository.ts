@@ -35,6 +35,7 @@ export default class MessageRepository {
 
             const messageDoc:MessageDocument = await messageModel.create({...message, sender: userId, chatId, chatType});
             chat.messages.push(messageDoc._id as mongoose.Types.ObjectId);
+            chat.updatedAt = new Date();
             await chat.save();
         } catch (error) {
             throw error;

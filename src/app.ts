@@ -16,6 +16,7 @@ import messageRouter from "./features/message/router";
 import mediaRouter from "./features/media/router";
 import notificationRouter from "./features/notification/router";
 import PresenceRouter from "./features/presence/router";
+import searchRouter from "./features/search/router";
 
 
 
@@ -59,9 +60,10 @@ app.use("/user", /*auth,*/ userRouter);
 app.use("/chat", /*auth,*/ privateChatRouter);
 app.use("/group", /*auth,*/ groupRouter);
 app.use("/message", /*auth,*/ messageRouter);
-app.use("/media", mediaRouter);
-app.use("/notification", notificationRouter);
-app.use("/presence", PresenceRouter);
+app.use("/media", /*auth, */ mediaRouter);
+app.use("/notification", /*adminAuth,*/ notificationRouter);
+app.use("/presence", /**auth, */ PresenceRouter);
+app.use("/search", /*auth,*/ searchRouter);
 
 
 app.get("/", (req:Request, res:Response, next:NextFunction)=>{

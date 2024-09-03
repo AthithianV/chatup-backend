@@ -1,9 +1,19 @@
-import express from "express";
-import MessageController from "./controller";
+import express, { NextFunction, Response } from "express";
+import SearchController from "./controller";
+import { AuthorizedRequest } from "../../types/authorizedRequest";
 
-const messageRouter = express.Router();
+const searchRouter = express.Router();
 
-const messageController = new MessageController();
-messageRouter.use("/add", messageController.add);
+const searchController = new SearchController();
 
-export default messageRouter;
+searchRouter.get(
+    "/message",
+    (req:AuthorizedRequest, res:Response, next:NextFunction)=>searchController.searchMessage(req, res, next)
+)
+
+searchRouter.get(
+    "/chat",
+    (req:AuthorizedRequest, res:Response, next:NextFunction)=>searchController.searchChat(req, res, next)
+)
+
+export default searchRouter;

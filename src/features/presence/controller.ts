@@ -16,7 +16,7 @@ export default class PresenceController {
             await this.presenceRepository.updateStatus(userId, status);
             res.status(201).json({success:true, message:`user:${userId} is now ${status}`})
         } catch (error) {
-            throw error;
+            next(error);
         }
     }
 
@@ -29,7 +29,7 @@ export default class PresenceController {
             logger.info(message);
             res.status(200).json({success: true, online: status, message});
         } catch (error) {
-            throw error;
+            next(error);
         }
     }    
 
