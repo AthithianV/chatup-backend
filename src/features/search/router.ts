@@ -12,8 +12,13 @@ searchRouter.get(
 )
 
 searchRouter.get(
-    "/chat",
-    (req:AuthorizedRequest, res:Response, next:NextFunction)=>searchController.searchChat(req, res, next)
+    "/user",
+    (req:AuthorizedRequest, res:Response, next:NextFunction)=>searchController.searchUser(req, res, next)
 )
+
+// searchRouter.get(
+//     "/chat",
+//     (req:AuthorizedRequest, res:Response, next:NextFunction)=>searchController.searchChat(req, res, next)
+// )
 
 export default searchRouter;

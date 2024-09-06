@@ -49,7 +49,7 @@
   ],
   "paths": {
 
-    "/search/message": {
+    "/api/search/message": {
       "get": {
         "summary": "Search messages of the user",
         "operationId": "searchMessage",
@@ -57,7 +57,7 @@
         "parameters": [
           {
             "name": "searchKey",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "string"
@@ -65,7 +65,7 @@
           },
           {
             "name": "page",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "number"
@@ -73,7 +73,7 @@
           },
           {
             "name": "limit",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "number"
@@ -100,15 +100,15 @@
         }
       }
     },
-    "/search/chat": {
+    "/api/search/user": {
       "get": {
-        "summary": "Search chats of the user",
-        "operationId": "searchChat",
+        "summary": "Search users in application",
+        "operationId": "searchUser",
         "tags": ["Search"],
         "parameters": [
           {
             "name": "searchKey",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "string"
@@ -116,7 +116,7 @@
           },
           {
             "name": "page",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "number"
@@ -124,7 +124,58 @@
           },
           {
             "name": "limit",
-            "in": "path",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User with matching username",
+            "content": {
+              "application/json":{
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/search/chat": {
+      "get": {
+        "summary": "Search chats of the user",
+        "operationId": "searchChat",
+        "tags": ["Search"],
+        "parameters": [
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "number"
@@ -153,7 +204,7 @@
     },
 
 
-    "/presence/update-status": {
+    "/api/presence/update-status": {
       "patch": {
         "summary": "Update Online status of User",
         "operationId": "updateStatus",
@@ -188,7 +239,7 @@
         }
       }
     },
-    "/presence/get-status/{userId}": {
+    "/api/presence/get-status/{userId}": {
       "get": {
         "summary": "Get Online status of User",
         "operationId": "setStatus",
@@ -234,7 +285,7 @@
       }
     },
 
-    "/notification": {
+    "/api/notification": {
       "post": {
         "summary": "Create a new notification",
         "operationId": "createNotification",
@@ -267,7 +318,7 @@
         }
       }
     },
-    "/notification/{userId}": {
+    "/api/notification/{userId}": {
       "get": {
         "summary": "Get notifications for a user",
         "operationId": "getNotifications",
@@ -302,7 +353,7 @@
         }
       }
     },
-    "/notification/{notificationId}/read": {
+    "/api/notification/{notificationId}/read": {
       "patch": {
         "summary": "Mark a notification as read",
         "operationId": "markAsRead",
@@ -327,7 +378,7 @@
         }
       }
     },
-    "/notification/{notificationId}": {
+    "/api/notification/{notificationId}": {
       "delete": {
         "summary": "Delete a notification",
         "operationId": "deleteNotification",
@@ -354,10 +405,10 @@
     },
 
     
-    "/media/{mediaType}": {
+    "/api/media/{mediaType}": {
       "post": {
-        "summary": "Upload multiple images",
-        "description": "Endpoint to upload multiple images.",
+        "summary": "Upload multiple files",
+        "description": "Endpoint to upload multiple files.",
         "tags": ["Media"],
         "parameters": [
           {
@@ -377,14 +428,14 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "images": {
+                  "files": {
                     "type": "array",
                     "items": {
                       "type": "string",
                       "format": "binary"
                     },
-                    "description": "Multiple images to upload.",
-                    "required": ["images"]
+                    "description": "Multiple files to upload. (Max of 5 files can be uploaded)",
+                    "required": ["files"]
                   }
                 }
               }
@@ -434,7 +485,7 @@
         }
       }
     },
-    "/media/{mediaId}": {
+    "/api/media/{mediaId}": {
       "delete": {
         "summary": "Delete Media",
         "description": "Endpoint to delete images.",
@@ -477,7 +528,7 @@
     
     
 
-    "/auth/register": {
+    "/api/auth/register": {
       "post": {
         "tags": [
           "Auth"
@@ -516,7 +567,7 @@
         }
       }
     },
-    "/auth/login": {
+    "/api/auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -564,7 +615,7 @@
       }
     },
 
-    "/auth/logout": {
+    "/api/auth/logout": {
       "get": {
         "tags": [
           "Auth"
@@ -605,7 +656,7 @@
         ]
       }
     },
-    "/auth/forget-password/{emailId}": {
+    "/api/auth/forget-password/{emailId}": {
       "get": {
         "tags": [
           "Auth"
@@ -649,7 +700,7 @@
         }
       }
     },
-    "/auth/verfiy-otp": {
+    "/api/auth/verfiy-otp": {
       "post": {
         "tags": [
           "Auth"
@@ -685,7 +736,7 @@
         }
       }
     },
-    "/auth/reset-password": {
+    "/api/auth/reset-password": {
       "put": {
         "tags": [
           "Auth"
@@ -722,7 +773,7 @@
       }
     },
         
-    "/user/upload-profile-picture": {
+    "/api/user/upload-profile-picture": {
       "put": {
         "tags": ["User"],
         "summary": "Upload profile picture",
@@ -763,7 +814,7 @@
         }
       }
     },
-    "/user/update-status": {
+    "/api/user/update-status": {
       "put": {
         "tags": ["User"],
         "summary": "Update user status",
@@ -804,7 +855,7 @@
         }
       }
     },
-    "/user/add-contact/{userId}": {
+    "/api/user/add-contact/{userId}": {
       "put": {
         "tags": ["User"],
         "summary": "Add new contact",
@@ -841,7 +892,7 @@
         }
       }
     },
-    "/user/get-contact-list": {
+    "/api/user/get-contact-list": {
       "get": {
         "tags": ["User"],
         "summary": "Get contact list",
@@ -864,30 +915,8 @@
         }
       }
     },
-    "/user/toggle-online": {
-      "put": {
-        "tags": ["User"],
-        "summary": "Toggle user offline status",
-        "description": "Toggles the user's offline status.",
-        "operationId": "toggleOffline",
-        "responses": {
-          "200": {
-            "description": "User offline status toggled successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "User not found"
-          }
-        }
-      }
-    },
-    "/user/block-user/{userId}": {
+
+    "/api/user/block-user/{userId}": {
       "put": {
         "tags": ["User"],
         "summary": "Block a user",
@@ -921,7 +950,7 @@
         }
       }
     },
-    "/user/leave-group/{groupId}": {
+    "/api/user/leave-group/{groupId}": {
         "delete": {
           "tags": ["User"],
           "summary": "Remove a user from a group",
@@ -949,7 +978,7 @@
           }
         }
       },
-    "/user/verify-email": {
+    "/api/user/verify-email": {
       "get": {
         "tags": ["User"],
         "summary": "Verify user email",
@@ -972,7 +1001,7 @@
         }
       }
     },
-    "/user/confirm-email": {
+    "/api/user/confirm-email": {
       "put": {
         "tags": ["User"],
         "summary": "Confirm email verification",
@@ -1013,7 +1042,7 @@
         }
       }
     },
-    "/user/{userId}": {
+    "/api/user/{userId}": {
       "get": {
         "tags": ["User"],
         "summary": "Get user profile",
@@ -1048,7 +1077,7 @@
       }
     },
 
-    "/chat/create-chat/{userId}": {
+    "/api/chat/create-chat/{userId}": {
       "put": {
         "summary": "Create a new private chat",
         "description": "Creates a new private chat between two users.",
@@ -1084,7 +1113,7 @@
         }
       }
     },
-    "/chat/get-chat-history/{chatId}": {
+    "/api/chat/get-chat-history/{chatId}": {
       "get": {
         "summary": "Get chat history",
         "description": "Retrieves the message history for a specific chat.",
@@ -1148,7 +1177,7 @@
         }
       }
     },
-    "/chat/get-all-chat/{userId}": {
+    "/api/chat/get-all-chat/{userId}": {
       "get": {
         "summary": "Get all chats for a user",
         "description": "Retrieves all chats for a specific user.",
@@ -1187,7 +1216,7 @@
       }
     },
 
-    "/group/create-group": {
+    "/api/group/create-group": {
         "post": {
           "tags": ["Group Chat"],
           "summary": "Create a new group",
@@ -1242,7 +1271,7 @@
           }
         }
     },
-    "/group/update-group/{groupId}": {
+    "/api/group/update-group/{groupId}": {
       "put": {
         "tags": ["Group Chat"],
         "summary": "Update group details",
@@ -1288,7 +1317,7 @@
         }
       }
     },
-    "/group/upload-group-icon/{groupId}": {
+    "/api/group/upload-group-icon/{groupId}": {
       "put": {
         "tags": ["Group Chat"],
         "summary": "Upload Group Icon",
@@ -1339,7 +1368,7 @@
         }
       }
     },
-    "/group/delete-group/{groupId}": {
+    "/api/group/delete-group/{groupId}": {
       "delete": {
         "tags": ["Group Chat"],
         "summary": "Delete a group",
@@ -1367,7 +1396,7 @@
         }
       }
     },
-    "/group/get-group-member/{groupId}": {
+    "/api/group/get-group-member/{groupId}": {
       "get": {
         "tags": ["Group Chat"],
         "summary": "Get group members",
@@ -1389,7 +1418,7 @@
         }
       }
     },
-    "/group/get-group-messages/{groupId}": {
+    "/api/group/get-group-messages/{groupId}": {
       "get": {
         "tags": ["Group Chat"],
         "summary": "Get group messages",
@@ -1427,7 +1456,7 @@
         }
       }
     },
-    "/group/add-user-to-group": {
+    "/api/group/add-user-to-group": {
       "put": {
         "tags": ["Group Chat"],
         "summary": "Add a user to a group",
@@ -1463,7 +1492,7 @@
         }
       }
     },
-    "/group/remove-user-from-group/{userId}/{groupId}": {
+    "/api/group/remove-user-from-group/{userId}/{groupId}": {
       "delete": {
         "tags": ["Group Chat"],
         "summary": "Remove a user from a group",
@@ -1500,7 +1529,7 @@
       }
     },
 
-    "/message/send-message": {
+    "/api/message/send-message": {
       "post": {
         "summary": "Send a message",
         "tags": ["Message"],
@@ -1518,7 +1547,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": ["private", "group"]
             }
           }
         ],
@@ -1569,7 +1599,7 @@
         }
       }
     },
-    "/message/edit-message/{messageId}": {
+    "/api/message/edit-message/{messageId}": {
       "put": {
         "summary": "Edit a message",
         "tags": ["Message"],
@@ -1633,7 +1663,7 @@
         }
       }
     },
-    "/message/delete-message/{messageId}": {
+    "/api/message/delete-message/{messageId}": {
       "delete": {
         "summary": "Delete a message",
         "tags": ["Message"],

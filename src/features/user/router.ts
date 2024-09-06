@@ -27,10 +27,10 @@ userRouter.get(
     userController.getContacts   
 )
 
-userRouter.put(
-    "/toggle-online", 
-    userController.toggleOnline
-)
+// userRouter.put(
+//     "/toggle-online", 
+//     userController.toggleOnline
+// )
 
 
 userRouter.put(

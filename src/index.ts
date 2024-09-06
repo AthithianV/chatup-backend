@@ -21,3 +21,6 @@ app.listen(port, async ()=>{
         logger.error(error);
     }
 })
+
+
+// exports.app = functions

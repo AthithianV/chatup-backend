@@ -54,7 +54,7 @@ const userSchema = new mongoose.Schema<UserDocument>({
     groups: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Group'
+        ref: 'GroupChat'
       }
     ],
     privateChats: [

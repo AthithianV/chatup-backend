@@ -78,4 +78,4 @@ export const uploadMedia = multer({
     limits: {
         fileSize: 1*1024*1024
     }
-}).array("images", 5);
+}).array("files", 5);

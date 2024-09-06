@@ -63,13 +63,7 @@ export default class AuthController{
                         maxAge: 360000
                     }
                 )
-                .json(
-                    {
-                        success: true,
-                        message: "User is logged in successfully",
-                        token
-                    }
-                );
+                .send(token);
         } catch (error) {
             errorLogger.error(`Login Attempt failed for email: ${user.email}`);
             next(error);
