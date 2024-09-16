@@ -11,12 +11,12 @@ groupRouter.post(
     groupChatController.createGroup
 );
 
-groupRouter.put(
+groupRouter.patch(
     "/update-group/:groupId", 
     groupChatController.updateGroup
 );
 
-groupRouter.put(
+groupRouter.patch(
     "/upload-group-icon/:groupId",
     uploadGroupIcon,
     groupChatController.groupAdminCheck,
@@ -39,7 +39,7 @@ groupRouter.get(
     groupChatController.getGroupMessages
 );
 
-groupRouter.put(
+groupRouter.patch(
     "/add-user-to-group",
     groupChatController.groupAdminCheck,
     groupChatController.addUserToGroup

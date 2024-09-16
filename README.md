@@ -3,7 +3,7 @@
    - Transaction
    - Use Firebase for files and media.
    - Media Async Issue.
-   - Use Patch
+   - Socket IO
 
 
 ## Controllers
@@ -92,3 +92,6 @@
    ├──────compressed
    ├──────original
 ```
+
+
+

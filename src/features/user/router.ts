@@ -12,12 +12,12 @@ userRouter.put(
     userController.updateProfilePicture   
 )
 
-userRouter.put(
+userRouter.patch(
     "/update-status", 
     userController.updateStatus   
 )
 
-userRouter.put(
+userRouter.patch(
     "/add-contact/:userId", 
     userController.addContact   
 )
@@ -33,7 +33,7 @@ userRouter.get(
 // )
 
 
-userRouter.put(
+userRouter.patch(
     "/block-user/:userId", 
     userController.blockUser   
 )

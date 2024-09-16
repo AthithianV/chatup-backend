@@ -815,7 +815,7 @@
       }
     },
     "/api/user/update-status": {
-      "put": {
+      "patch": {
         "tags": ["User"],
         "summary": "Update user status",
         "description": "Updates the status of the user.",
@@ -856,7 +856,7 @@
       }
     },
     "/api/user/add-contact/{userId}": {
-      "put": {
+      "patch": {
         "tags": ["User"],
         "summary": "Add new contact",
         "description": "Adds a new contact to the user's contact list.",
@@ -917,7 +917,7 @@
     },
 
     "/api/user/block-user/{userId}": {
-      "put": {
+      "patch": {
         "tags": ["User"],
         "summary": "Block a user",
         "description": "Blocks a user from interacting with the current user.",
@@ -1272,7 +1272,7 @@
         }
     },
     "/api/group/update-group/{groupId}": {
-      "put": {
+      "patch": {
         "tags": ["Group Chat"],
         "summary": "Update group details",
         "parameters": [
@@ -1318,7 +1318,7 @@
       }
     },
     "/api/group/upload-group-icon/{groupId}": {
-      "put": {
+      "patch": {
         "tags": ["Group Chat"],
         "summary": "Upload Group Icon",
         "description": "Uploads a new group Icon for the group.",
@@ -1457,7 +1457,7 @@
       }
     },
     "/api/group/add-user-to-group": {
-      "put": {
+      "patch": {
         "tags": ["Group Chat"],
         "summary": "Add a user to a group",
         "parameters": [
