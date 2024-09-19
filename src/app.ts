@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import swaggerUi from "swagger-ui-express";
+import cors from "cors";
 
 import { consoleLogger, logger } from "./utils/logger";
 import { errorHandler } from "./middlewares/errorHandler";
@@ -11,7 +12,7 @@ import router from "./router";
 
 const app = express();
 
-app.use(cors)
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
