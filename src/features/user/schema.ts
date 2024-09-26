@@ -16,15 +16,8 @@ const userSchema = new mongoose.Schema<UserDocument>({
       type: String,
       required: true
     },
-    profilePicture: { 
-      type: {
-          original: {
-            type: String,
-          },
-          compressed: {
-            type: String,
-          },
-      }
+    profilePicture: {
+      type: String,
     },
     status: {
       type: String,

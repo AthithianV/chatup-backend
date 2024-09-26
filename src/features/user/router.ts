@@ -8,7 +8,7 @@ const userController = new UserController();
 
 userRouter.put(
     "/upload-profile-picture", 
-    uploadProfileImageMiddleWare,
+    // uploadProfileImageMiddleWare,
     userController.updateProfilePicture   
 )
 

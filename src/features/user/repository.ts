@@ -10,6 +10,9 @@ import sendEmail from "../../utils/mailer";
 import otpModel from "../auth/otpSchema";
 import { deleteFile } from "../../utils/deleteFile";
 import groupChatModel from "../group/schema";
+import { storage } from "../../config/firebase";
+import { ref, uploadBytes } from "firebase/storage";
+import path from "path";
 
 
 export default class UserRepository {
@@ -36,29 +39,10 @@ export default class UserRepository {
         }
     }
 
-    updateProfilePicture = async (filename:string, userId:string) => {
+    updateProfilePicture = async (file:Express.Multer.File, userId:string) => {
         try {
-            const basePath = "./uploads/profile";
-            const originalPath = `/original/${filename}`;
-            const compressedPath = `/compressed/${filename}`;
-
-            const user:UserDocument = await UserRepository.getUserById(userId);
-            if(user.profilePicture){
-                deleteFile(basePath+user.profilePicture.original);
-                deleteFile(basePath+user.profilePicture.compressed);
-            }
-
-
-            await compressImage(basePath+originalPath, basePath+compressedPath);
-
-            
-            user.profilePicture = {
-                original: `/profile/original/${filename}`, 
-                compressed: `/profile/compressed/${filename}`
-            };
-            user.updatedAt = new Date();
-            await user.save();
-
+            const storageRef = ref(storage, `/Profile Picture/${userId}-profile-picture${path.extname(file.originalname)}`);
+            const uploaded = uploadBytes(storageRef, file.buffer);
         } catch (error) {
             throw error;
         }

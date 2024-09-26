@@ -36,7 +36,7 @@ export default class UserController {
                 throw new ApplicationError(400, "Image is not attached");
             }
 
-            await this.userRepository.updateProfilePicture(req.file.filename, req.user.userId);
+            await this.userRepository.updateProfilePicture(req.file, req.user.userId);
             
             const message = `Profile picture updated successfully for ${req.user.username}`;
             consoleLogger.info(message);

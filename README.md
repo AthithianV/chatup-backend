@@ -1,9 +1,10 @@
 ## To Run app locally
 # Tasks:
-   - Transaction
    - Use Firebase for files and media.
+   - Transaction.
+   - Passport.
    - Media Async Issue.
-   - Socket IO
+   - Socket IO.
 
 
 ## Controllers
