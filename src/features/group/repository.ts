@@ -1,12 +1,13 @@
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import { GroupChatDocument, GroupChatRequest, UpdateGroupRequest } from "../../types/group";
 import groupChatModel from "./schema";
 import ApplicationError, { missingError } from "../../middlewares/errorHandler";
 import { UserDocument } from "../../types/user";
 import userModel from "../user/schema";
-import compressImage from "../../utils/compressImage";
-import { deleteFile } from "../../utils/deleteFile";
 import UserRepository from "../user/repository";
+import { ref, uploadBytes } from "firebase/storage";
+import { storage } from "../../config/firebase";
+import path from "path";
 
 
 export default class GroupChatRepository{
@@ -81,34 +82,24 @@ export default class GroupChatRepository{
         }
     }
 
-    updateGroupIcon = async (groupId:string, filename:string, userId:string):Promise<void> =>{
+    updateGroupIcon = async (groupId:string, file:Express.Multer.File, userId:string):Promise<void> =>{
         try {
-            const originalPath = `/original/${filename}`;
-            const compressedPath = `/compressed/${filename}`;
-            const basePath = "./public/uploads/groupIcon";
-
             const group:GroupChatDocument = await GroupChatRepository.getGroupById(groupId);
             if(!group){
-                deleteFile(basePath+originalPath);
                 throw missingError("Group", groupId);
             }
 
             if(!group.groupAdmin.equals(new mongoose.Types.ObjectId(userId))){
-                deleteFile(basePath+originalPath);
                 throw new ApplicationError(400, "Only group Admin can update group Icon");
             }
 
-            if(group.icon){
-                deleteFile(basePath+group.icon.original);
-                deleteFile(basePath+group.icon.compressed);
+            const storageRef = ref(storage, `/Group Icon/${file.filename}.${path.extname(file.originalname)}`);
+            const uploaded = await uploadBytes(storageRef, file.buffer);
+            if(uploaded){
+                group.icon = uploaded.metadata.fullPath;
+                await group.save();
             }
-
-            await compressImage(basePath+originalPath, basePath+compressedPath);
-            const icon = {
-                original: originalPath,
-                compressed: compressedPath
-            };
-            await groupChatModel.findOneAndUpdate({_id:groupId}, {icon, updatedAt: new Date()});
+            console.log(group);
         } catch (error) {
             throw error;
         }

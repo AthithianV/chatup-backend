@@ -1,6 +1,6 @@
 import express from "express";
 import GroupChatController from "./controller";
-import { uploadGroupIcon } from "../../utils/uploadImages";
+import { uploadImageMiddleWare } from "../../middlewares/uploadImagesMiddleware";
 
 const groupRouter = express.Router();
 
@@ -18,7 +18,7 @@ groupRouter.patch(
 
 groupRouter.patch(
     "/upload-group-icon/:groupId",
-    uploadGroupIcon,
+    uploadImageMiddleWare,
     groupChatController.groupAdminCheck,
     groupChatController.updateGroupIcon
 );

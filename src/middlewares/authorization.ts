@@ -4,7 +4,14 @@ import ApplicationError from "./errorHandler";
 import { AuthorizedRequest } from "../types/authorizedRequest";
 
 export const auth = (req:AuthorizedRequest, res:Response, next:NextFunction)=>{
-    const token = req.cookies.token || req.header('Authorization');
+
+    let token = req.cookies.token || req.header('Authorization');
+
+    if(typeof token === 'string' && token.startsWith("Bearer")){
+        token = token.split(" ")[1];
+    }
+
+    
 
     if(!token){
         return res.status(400).json({error: "Unauthorized"});

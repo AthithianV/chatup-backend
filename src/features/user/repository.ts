@@ -1,18 +1,16 @@
 import mongoose from "mongoose";
+import path from "path";
+import { storage } from "../../config/firebase";
+import { ref, uploadBytes } from "firebase/storage";
 
 import ApplicationError, { missingError } from "../../middlewares/errorHandler";
 import { SensitiveUser, UserDocument } from "../../types/user";
-import compressImage from "../../utils/compressImage";
-import userModel from "./schema";
-import generateRandomNumber from "../../utils/gererateRandomNumber";
 import {Otp, OtpDocument} from "../../types/otp";
-import sendEmail from "../../utils/mailer";
+import userModel from "./schema";
 import otpModel from "../auth/otpSchema";
-import { deleteFile } from "../../utils/deleteFile";
 import groupChatModel from "../group/schema";
-import { storage } from "../../config/firebase";
-import { ref, uploadBytes } from "firebase/storage";
-import path from "path";
+import generateRandomNumber from "../../utils/gererateRandomNumber";
+import sendEmail from "../../utils/mailer";
 
 
 export default class UserRepository {
@@ -41,8 +39,14 @@ export default class UserRepository {
 
     updateProfilePicture = async (file:Express.Multer.File, userId:string) => {
         try {
-            const storageRef = ref(storage, `/Profile Picture/${userId}-profile-picture${path.extname(file.originalname)}`);
-            const uploaded = uploadBytes(storageRef, file.buffer);
+            const user = await UserRepository.getUserById(userId);
+            const storageRef = ref(storage, `/Profile Picture/${file.filename}`);
+            const uploaded = await uploadBytes(storageRef, file.buffer);
+            if(uploaded){
+                user.profilePicture = uploaded.metadata.fullPath;
+                await user.save();
+            }
+            console.log(user);
         } catch (error) {
             throw error;
         }

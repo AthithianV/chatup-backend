@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { GroupChatDocument } from "../../types/group";
-import ApplicationError from "../../middlewares/errorHandler";
 
 
 const groupChatSchema = new mongoose.Schema<GroupChatDocument>({
@@ -12,10 +11,7 @@ const groupChatSchema = new mongoose.Schema<GroupChatDocument>({
         type: String,
         default: "Chatup Group"
     },
-    icon: {
-        original: String,
-        compressed: String,
-    },
+    icon: String,
     groupAdmin: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

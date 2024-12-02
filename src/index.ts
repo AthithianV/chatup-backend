@@ -12,10 +12,12 @@ const successMessage = `Server Started \n Server Running on Port ${port} \n Visi
 httpServer.listen(port, async ()=>{
     try {
         createLogDirectory();
-        // createUploadDirectory();
         logger.info(successMessage);
         consoleLogger.info(successMessage);
-        await connectDatabase(process.env.DATABASE_URL+"/chatup");
+        if(!process.env.DATABASE_URL){
+            throw new Error("DATABASE_URL is not set in ENV");
+        }
+        await connectDatabase(process.env.DATABASE_URL);
     } catch (error) {
         consoleLogger.error(error);
         logger.error(error);

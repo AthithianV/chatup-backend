@@ -5,6 +5,25 @@
    - Passport.
    - Media Async Issue.
    - Socket IO.
+   - Documentation
+
+## Environment Variables
+1. DATABASE_URL
+2. NODE_ENV
+3. TIME_ZONE
+4. BASE_URL
+5. SECRET_KEY = 343a1c30fc9af31d473e6f0ee16e48777984063518e428e3882070d73591cb6a
+6. GMAIL_USER
+7. GMAIL_PASSWORD
+
+### SuperUser
+```json
+{
+  "username": "SuperUser",
+  "email": "superuser@example.com",
+  "password": "SuperUserPassword"
+}
+```
 
 
 ## Controllers

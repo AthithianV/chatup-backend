@@ -50,8 +50,7 @@ export default class GroupChatController{
                 throw new ApplicationError(500, "File is missing");
             }
             const groupId = req.params.groupId;
-            const filename = req.file.filename;
-            await this.groupChatRepository.updateGroupIcon(groupId, filename, req.user.userId);
+            await this.groupChatRepository.updateGroupIcon(groupId, req.file, req.user.userId);
             res.status(201).json({success: true, message: `Group Icon for Group (ID: ${groupId}) has been updated Successfully`});
         } catch (error) {
             next(error);

@@ -1,14 +1,14 @@
 import express from "express";
 
 import UserController from "./controller";
-import {uploadProfileImageMiddleWare} from "../../middlewares/uploadImagesMiddleware";
+import {uploadImageMiddleWare} from "../../middlewares/uploadImagesMiddleware";
 const userRouter = express.Router();
 
 const userController = new UserController();
 
 userRouter.put(
     "/upload-profile-picture", 
-    // uploadProfileImageMiddleWare,
+    uploadImageMiddleWare,
     userController.updateProfilePicture   
 )
 

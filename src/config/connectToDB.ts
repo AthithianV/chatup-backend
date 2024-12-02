@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import { consoleLogger, errorLogger, logger } from "../utils/logger";
+
+import { consoleLogger, logger } from "../utils/logger";
 
 const msg = {
     success: "MongoDB is connected Successfully"
@@ -7,12 +8,12 @@ const msg = {
 
 
 async function connectDatabase(uri:string):Promise<void>{
-    try {
+    try {        
         await mongoose.connect(uri);
         logger.info(msg.success);
         consoleLogger.info(msg.success);
     } catch (error) {
-        errorLogger.error(error);
+        console.error(error);
         throw error;
     }
 }

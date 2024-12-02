@@ -11,10 +11,7 @@ export type User = {
     username:string,
     email:string,
     password:string,
-    profilePicture: {
-        original: string,
-        compressed: string,
-    },
+    profilePicture: string,
     status:string,
     lastActive:Date,
     online:boolean,
